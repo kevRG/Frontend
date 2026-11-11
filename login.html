@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceso a personal · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/global.css" />
+  </head>
+
+  <body>
+    <div class="login">
+      <aside class="login__photo">
+        <a href="/" class="brand">
+          <div class="brand__icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.7s6.5 6.4 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.7 12 2.7Z"
+              />
+            </svg>
+          </div>
+          <div>
+            <div class="brand__name">AguaAlerta</div>
+            <div class="brand__sub">RED HÍDRICA INTELIGENTE</div>
+          </div>
+        </a>
+
+        <div class="login__quote">
+          <h2 class="login__quote-text">
+            “Tecnología para que cada decisión hídrica llegue a tiempo.”
+          </h2>
+          <p class="login__quote-author">Centro Municipal de Operaciones</p>
+        </div>
+
+        <span class="login__credit">Foto: Ivan Bandura / Unsplash</span>
+      </aside>
+
+      <section class="login__panel">
+        <a href="/" class="login__back">← Volver al portal público</a>
+
+        <form class="login__form" id="loginForm" novalidate>
+          <span class="eyebrow">Acceso restringido</span>
+          <h1 class="login__title">Bienvenido a AguaAlerta</h1>
+          <p class="login__lead">
+            Ingresa tus credenciales institucionales para continuar.
+          </p>
+
+          <div class="field" id="f-user">
+            <label class="field__label" for="user"
+              >Usuario o correo institucional</label
+            >
+            <input
+              id="user"
+              class="field__input"
+              type="text"
+              placeholder="nombre@municipio.gob.mx"
+              autocomplete="username"
+            />
+            <div class="field__error">Ingresa tu usuario.</div>
+          </div>
+
+          <div class="field" id="f-pass">
+            <label class="field__label" for="pass">Contraseña</label>
+            <div class="password">
+              <input
+                id="pass"
+                class="field__input password__input"
+                type="password"
+                value="12345678"
+                autocomplete="current-password"
+              />
+              <button
+                type="button"
+                class="password__toggle"
+                id="togglePw"
+                aria-label="Mostrar contraseña"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+            <div class="field__error">Ingresa tu contraseña.</div>
+          </div>
+
+          <div class="login__options">
+            <label class="check">
+              <input class="check__input" type="checkbox" />
+              Mantener sesión iniciada
+            </label>
+            <a href="#" class="login__forgot">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">
+            Iniciar sesión
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script type="module" src="/src/js/login.js"></script>
+  </body>
+</html>
