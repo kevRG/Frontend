@@ -1,207 +1,199 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AguaAlerta: red hídrica inteligente para monitorear el suministro de agua en tu comunidad."
+    />
     <title>AguaAlerta · Red hídrica inteligente</title>
-    <link rel="stylesheet" href="/src/css/global.css" />
+    <link rel="stylesheet" href="/src/css/index.css" />
   </head>
-  <body>
-    <header class="header">
-      <a href="/" class="brand">
-        <div class="brand__icon">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M12 2.7s6.5 6.4 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.7 12 2.7Z"
-            />
-          </svg>
-        </div>
-        <div>
-          <div class="brand__name">AguaAlerta</div>
-          <div class="brand__sub">Red hídrica inteligente</div>
-        </div>
-      </a>
-      <nav class="nav">
-        <a href="#estado" class="nav__link">Monitoreo comunitario</a>
-        <a href="#estado" class="nav__link">Calendario de tandeo</a>
-        <a href="/reporte.html" class="nav__link">Reporte ciudadano</a>
-      </nav>
-      <a href="/login.html" class="btn btn--outline">Acceso a personal</a>
-    </header>
-
+  <body class="landing">
     <main>
       <section class="hero">
-        <div class="hero__left">
-          <span class="pill">Sistema municipal · Telemetría en vivo</span>
-          <h1 class="hero__title">
-            Agua que se monitorea.
-            <span class="hero__title-accent">Comunidad que responde.</span>
-          </h1>
-          <p class="hero__text">
-            Inteligencia operativa para cuidar cada litro, anticipar fugas y
-            coordinar una respuesta transparente en tu comunidad.
-          </p>
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="hero__badge">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              Sistema municipal · Telemetría en vivo
+            </span>
 
-          <form class="search" id="searchForm">
-            <label for="colonia" class="search__label"
-              >Consulta el suministro en tu colonia</label
-            >
-            <div class="search__row">
-              <svg class="search__icon" viewBox="0 0 24 24">
-                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <input
-                id="colonia"
-                class="search__input"
-                type="text"
-                placeholder="Ej. San Baltazar, Centro..."
-                autocomplete="off"
-              />
-              <button type="submit" class="btn btn--primary">Consultar</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="hero__right">
-          <div class="orbit"></div>
-          <div class="orb">
-            <strong class="orb__value">92%</strong>
-            <small class="orb__label">RESERVA SEGURA</small>
-          </div>
-          <div class="float-card float-card--top">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="2" />
-              <path
-                d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19.1 4.9a10 10 0 0 1 0 14.2M4.9 19.1a10 10 0 0 1 0-14.2"
-              />
-            </svg>
-            <div>48 sensores<strong>en línea</strong></div>
-          </div>
-          <div class="float-card float-card--bottom">
-            <svg viewBox="0 0 24 24">
-              <path d="m22 7-8.5 8.5-5-5L2 17" />
-              <path d="M16 7h6v6" />
-            </svg>
-            <div>Flujo hoy<strong>+4.2%</strong></div>
-          </div>
-          <span class="orbit__dot"></span>
-        </div>
-      </section>
-
-      <section class="section" id="estado">
-        <span class="eyebrow">Estado comunitario</span>
-        <div class="section__head">
-          <h2 class="section__title">La red, en este momento</h2>
-          <span class="section__updated"
-            >Actualizado hace <span id="minutes">2</span> min</span
-          >
-        </div>
-
-        <div class="stats">
-          <div class="stats__item">
-            <div class="stats__icon stats__icon--blue">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 2.7s6.5 6.4 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.7 12 2.7Z"
-                />
-              </svg>
-            </div>
-            <div class="stats__body">
-              <div class="stats__num" id="liters">1.82M</div>
-              <div class="stats__label">litros inyectados hoy</div>
-            </div>
-            <span class="stats__delta">+6.4%</span>
-          </div>
-
-          <div class="stats__item">
-            <div class="stats__icon stats__icon--green">
-              <svg viewBox="0 0 24 24">
-                <ellipse cx="12" cy="5" rx="8" ry="3" />
-                <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
-                <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
-              </svg>
-            </div>
-            <div class="stats__body">
-              <div class="stats__num">92%</div>
-              <div class="stats__label">depósitos en nivel seguro</div>
-            </div>
-            <span class="badge badge--ok">Estable</span>
-          </div>
-
-          <div class="stats__item">
-            <div class="stats__icon stats__icon--orange">
-              <svg viewBox="0 0 24 24">
-                <circle cx="9" cy="8" r="3.5" />
-                <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
-                <path d="m16 11 2 2 4-4" />
-              </svg>
-            </div>
-            <div class="stats__body">
-              <div class="stats__num">8</div>
-              <div class="stats__label">cuadrillas en resolución</div>
-            </div>
-            <a href="/login.html" class="stats__link"
-              >Ver operación
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+            <h1 class="hero__title">
+              <span class="hero__title-line">Agua que se monitorea.</span>
+              <span class="hero__title-line hero__title-line--accent"
+                >Comunidad que responde.</span
               >
-                <path d="M5 12h14M13 6l6 6-6 6" />
+            </h1>
+
+            <p class="hero__lead">
+              Inteligencia operativa para cuidar cada litro, anticipar fugas y
+              coordinar una respuesta transparente en tu comunidad.
+            </p>
+
+            <form class="search-card" id="consulta" novalidate>
+              <label class="search-card__label" for="colonia"
+                >Consulta el suministro en tu colonia</label
+              >
+              <div class="search-card__row">
+                <svg class="icon search-card__icon" aria-hidden="true">
+                  <use href="#map-pin" />
+                </svg>
+                <input
+                  class="search-card__input"
+                  id="colonia"
+                  name="colonia"
+                  type="text"
+                  placeholder="Ej. San Baltazar, Centro..."
+                  autocomplete="off"
+                />
+                <button class="button search-card__button" type="submit">
+                  Consultar
+                </button>
+              </div>
+              <p
+                class="search-card__feedback"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-visual__glow"></div>
+            <div class="hero-visual__orbit">
+              <span class="hero-visual__satellite"></span>
+            </div>
+
+            <div class="hero-visual__core">
+              <svg class="hero-visual__drop" viewBox="0 0 24 24">
+                <use href="#droplet" />
               </svg>
-            </a>
+              <span class="hero-visual__value">92%</span>
+              <svg class="hero-visual__caption" viewBox="0 0 200 60">
+                <path
+                  id="caption-arc"
+                  d="M 12 50 Q 100 30 188 50"
+                  fill="none"
+                />
+                <text>
+                  <textPath
+                    href="#caption-arc"
+                    startOffset="50%"
+                    text-anchor="middle"
+                  >
+                    RESERVA SEGURA
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+
+            <div
+              class="float-card hero-visual__card hero-visual__card--sensors"
+            >
+              <svg class="icon float-card__icon" aria-hidden="true">
+                <use href="#radio" />
+              </svg>
+              <div class="float-card__text">
+                <span class="float-card__label">48 sensores</span>
+                <span class="float-card__value">en línea</span>
+              </div>
+            </div>
+
+            <div class="float-card hero-visual__card hero-visual__card--flow">
+              <svg class="icon float-card__icon" aria-hidden="true">
+                <use href="#trending-up" />
+              </svg>
+              <div class="float-card__text">
+                <span class="float-card__label">Flujo hoy</span>
+                <span class="float-card__value">+4.2%</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="cta">
-        <div class="cta__left">
-          <div class="cta__icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"
-              />
-              <path d="M14 2v6h6M9 13h6M9 17h4" />
-            </svg>
+      <section class="status" id="estado" aria-labelledby="status-title">
+        <div class="status__inner">
+          <div class="status__header">
+            <div>
+              <p class="eyebrow">Estado comunitario</p>
+              <h2 class="status__title" id="status-title">
+                La red, en este momento
+              </h2>
+            </div>
+            <p class="status__updated">
+              <span class="status-dot" aria-hidden="true"></span>
+              Actualizado hace 2 min
+            </p>
           </div>
-          <div>
-            <span class="eyebrow">Participación ciudadana</span>
-            <h3 class="cta__title">¿Detectaste una fuga?</h3>
+
+          <ul class="status__grid">
+            <li class="metric">
+              <span class="metric__icon metric__icon--brand">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#droplet" />
+                </svg>
+              </span>
+              <div class="metric__body">
+                <span class="metric__value">1.82M</span>
+                <span class="metric__label">litros inyectados hoy</span>
+              </div>
+              <span class="metric__trend">+6.4%</span>
+            </li>
+            <li class="metric">
+              <span class="metric__icon metric__icon--success">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#database" />
+                </svg>
+              </span>
+              <div class="metric__body">
+                <span class="metric__value">92%</span>
+                <span class="metric__label">depósitos en nivel seguro</span>
+              </div>
+              <span class="pill pill--success metric__pill">Estable</span>
+            </li>
+            <li class="metric">
+              <span class="metric__icon metric__icon--warning">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#user-check" />
+                </svg>
+              </span>
+              <div class="metric__body">
+                <span class="metric__value">8</span>
+                <span class="metric__label">cuadrillas en resolución</span>
+              </div>
+              <a class="metric__link" href="/login.html">
+                Ver operación
+                <svg class="icon icon--sm" aria-hidden="true">
+                  <use href="#arrow-right" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cta" id="reporte" aria-labelledby="cta-title">
+        <div class="cta__inner">
+          <span class="cta__icon">
+            <svg class="icon" aria-hidden="true"><use href="#file-text" /></svg>
+          </span>
+          <div class="cta__content">
+            <p class="eyebrow eyebrow--light">Participación ciudadana</p>
+            <h2 class="cta__title" id="cta-title">¿Detectaste una fuga?</h2>
             <p class="cta__text">
               Tu reporte activa una ruta de atención y puedes seguir su avance
               con un folio público.
             </p>
           </div>
+          <a class="button cta__button" href="#reporte">
+            <svg class="icon" aria-hidden="true"><use href="#plus" /></svg>
+            Levantar reporte
+          </a>
         </div>
-        <a href="/reporte.html" class="btn btn--cta">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
-          Levantar reporte
-        </a>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="brand">
-        <div class="brand__icon">
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M12 2.7s6.5 6.4 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.7 12 2.7Z"
-            />
-          </svg>
-        </div>
-        <div>
-          <div class="brand__name">AguaAlerta</div>
-          <div class="brand__sub">Red hídrica inteligente</div>
-        </div>
-      </div>
-      <div>Emergencias 24/7 · 800 123 AGUA</div>
-      <div>Transparencia · Normatividad · Privacidad</div>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/index.js"></script>
   </body>
 </html>
