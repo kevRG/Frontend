@@ -1,105 +1,101 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <title>Acceso a personal · AguaAlerta</title>
-    <link rel="stylesheet" href="/src/css/normalize.css" />
-    <link rel="stylesheet" href="/src/css/global.css" />
+    <link rel="stylesheet" href="/src/css/login.css" />
   </head>
+  <body class="auth">
+    <aside class="auth__media">
+      <figure class="auth__quote">
+        <blockquote class="auth__quote-text">
+          “Tecnología para que cada decisión hídrica llegue a tiempo.”
+        </blockquote>
+        <figcaption class="auth__quote-author">
+          Centro Municipal de Operaciones
+        </figcaption>
+      </figure>
 
-  <body>
-    <div class="login">
-      <aside class="login__photo">
-        <a href="/" class="brand">
-          <div class="brand__icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 2.7s6.5 6.4 6.5 11.1a6.5 6.5 0 0 1-13 0C5.5 9.1 12 2.7 12 2.7Z"
-              />
-            </svg>
-          </div>
-          <div>
-            <div class="brand__name">AguaAlerta</div>
-            <div class="brand__sub">RED HÍDRICA INTELIGENTE</div>
-          </div>
-        </a>
+      <p class="auth__credit">Foto: Ivan Bandura / Unsplash</p>
+    </aside>
 
-        <div class="login__quote">
-          <h2 class="login__quote-text">
-            “Tecnología para que cada decisión hídrica llegue a tiempo.”
-          </h2>
-          <p class="login__quote-author">Centro Municipal de Operaciones</p>
-        </div>
+    <main class="auth__panel">
+      <a class="auth__back" href="/">
+        <svg class="icon icon--sm" aria-hidden="true">
+          <use href="#arrow-left" />
+        </svg>
+        Volver al portal público
+      </a>
 
-        <span class="login__credit">Foto: Ivan Bandura / Unsplash</span>
-      </aside>
-
-      <section class="login__panel">
-        <a href="/" class="login__back">← Volver al portal público</a>
-
-        <form class="login__form" id="loginForm" novalidate>
-          <span class="eyebrow">Acceso restringido</span>
-          <h1 class="login__title">Bienvenido a AguaAlerta</h1>
-          <p class="login__lead">
+      <div class="auth__wrapper">
+        <form class="login-form" novalidate>
+          <p class="eyebrow">Acceso restringido</p>
+          <h1 class="login-form__title">Bienvenido a<br />AguaAlerta</h1>
+          <p class="login-form__subtitle">
             Ingresa tus credenciales institucionales para continuar.
           </p>
 
-          <div class="field" id="f-user">
-            <label class="field__label" for="user"
+          <div class="login-form__field">
+            <label class="login-form__label" for="usuario"
               >Usuario o correo institucional</label
             >
             <input
-              id="user"
-              class="field__input"
+              class="login-form__input"
+              id="usuario"
+              name="usuario"
               type="text"
               placeholder="nombre@municipio.gob.mx"
               autocomplete="username"
+              required
             />
-            <div class="field__error">Ingresa tu usuario.</div>
+            <p class="login-form__error" id="usuario-error"></p>
           </div>
 
-          <div class="field" id="f-pass">
-            <label class="field__label" for="pass">Contraseña</label>
-            <div class="password">
+          <div class="login-form__field">
+            <label class="login-form__label" for="password">Contraseña</label>
+            <div class="login-form__control">
               <input
-                id="pass"
-                class="field__input password__input"
+                class="login-form__input login-form__input--password"
+                id="password"
+                name="password"
                 type="password"
-                value="12345678"
+                placeholder="••••••••"
                 autocomplete="current-password"
+                required
               />
               <button
+                class="login-form__toggle"
                 type="button"
-                class="password__toggle"
-                id="togglePw"
                 aria-label="Mostrar contraseña"
+                aria-pressed="false"
               >
-                <svg viewBox="0 0 24 24">
-                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
+                <svg class="icon" aria-hidden="true"><use href="#eye" /></svg>
               </button>
             </div>
-            <div class="field__error">Ingresa tu contraseña.</div>
+            <p class="login-form__error" id="password-error"></p>
           </div>
 
-          <div class="login__options">
-            <label class="check">
-              <input class="check__input" type="checkbox" />
-              Mantener sesión iniciada
+          <div class="login-form__options">
+            <label class="checkbox">
+              <input class="checkbox__input" type="checkbox" name="recordar" />
+              <span class="checkbox__box" aria-hidden="true"></span>
+              <span class="checkbox__label">Mantener sesión iniciada</span>
             </label>
-            <a href="#" class="login__forgot">¿Olvidaste tu contraseña?</a>
+            <a class="login-form__link" href="#">¿Problemas para ingresar?</a>
           </div>
 
-          <button type="submit" class="btn btn--primary btn--block">
+          <button
+            class="button button--block button--lg login-form__submit"
+            type="submit"
+          >
             Iniciar sesión
           </button>
-        </form>
-      </section>
-    </div>
 
-    <div class="toast" id="toast"></div>
+          <p class="login-form__note">Acceso cifrado y monitoreado · v2.4.1</p>
+        </form>
+      </div>
+    </main>
+
     <script type="module" src="/src/js/login.js"></script>
   </body>
 </html>
