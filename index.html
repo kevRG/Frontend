@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <include src="head.html"></include>
     <meta
       name="description"
       content="AguaAlerta: red hídrica inteligente para monitorear el suministro de agua en tu comunidad."
@@ -9,7 +10,12 @@
     <link rel="stylesheet" href="/src/css/index.css" />
   </head>
   <body class="landing">
+    <include src="icons.html"></include>
+
+    <include src="header.html"></include>
+
     <main>
+      <!-- Hero -->
       <section class="hero">
         <div class="hero__inner">
           <div class="hero__content">
@@ -61,7 +67,12 @@
           <div class="hero-visual" aria-hidden="true">
             <div class="hero-visual__glow"></div>
             <div class="hero-visual__orbit">
-              <span class="hero-visual__satellite"></span>
+              <span
+                class="hero-visual__satellite hero-visual__satellite--top"
+              ></span>
+              <span
+                class="hero-visual__satellite hero-visual__satellite--bottom"
+              ></span>
             </div>
 
             <div class="hero-visual__core">
@@ -112,6 +123,7 @@
         </div>
       </section>
 
+      <!-- Estado comunitario -->
       <section class="status" id="estado" aria-labelledby="status-title">
         <div class="status__inner">
           <div class="status__header">
@@ -173,26 +185,33 @@
         </div>
       </section>
 
-      <section class="cta" id="reporte" aria-labelledby="cta-title">
+      <!-- CTA operación institucional -->
+      <section class="cta" aria-labelledby="cta-title">
         <div class="cta__inner">
           <span class="cta__icon">
             <svg class="icon" aria-hidden="true"><use href="#file-text" /></svg>
           </span>
           <div class="cta__content">
-            <p class="eyebrow eyebrow--light">Participación ciudadana</p>
-            <h2 class="cta__title" id="cta-title">¿Detectaste una fuga?</h2>
+            <p class="eyebrow eyebrow--light">Operación institucional</p>
+            <h2 class="cta__title" id="cta-title">
+              Gestión exclusiva para personal autorizado
+            </h2>
             <p class="cta__text">
-              Tu reporte activa una ruta de atención y puedes seguir su avance
-              con un folio público.
+              La captura de reportes, infraestructura y telemetría se realiza
+              dentro del centro operativo.
             </p>
           </div>
-          <a class="button cta__button" href="#reporte">
-            <svg class="icon" aria-hidden="true"><use href="#plus" /></svg>
-            Levantar reporte
+          <a class="button cta__button" href="/login.html">
+            <svg class="icon" aria-hidden="true">
+              <use href="#arrow-right" />
+            </svg>
+            Ingresar al sistema
           </a>
         </div>
       </section>
     </main>
+
+    <include src="footer.html"></include>
 
     <script type="module" src="/src/js/index.js"></script>
   </body>
