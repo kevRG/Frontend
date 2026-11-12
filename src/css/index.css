@@ -225,16 +225,33 @@
   border-radius: 50%;
 }
 
+/* Puntos sobre la órbita: se ubican por ángulo desde el centro (0deg = derecha). */
 .hero-visual__satellite {
+  --angle: 0deg;
+
   position: absolute;
-  bottom: 22px;
-  right: 66px;
-  width: 11px;
-  height: 11px;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  margin: -6.5px 0 0 -6.5px;
   border-radius: 50%;
-  background-color: var(--color-brand-500);
   border: 2px solid var(--color-white);
-  box-shadow: 0 0 0 3px rgb(14 165 233 / 0.18);
+  transform: rotate(var(--angle)) translateX(195px);
+}
+
+.hero-visual__satellite--top {
+  --angle: -44deg;
+
+  background-color: var(--color-cyan-400);
+  box-shadow: 0 0 0 4px rgb(34 211 238 / 0.2);
+}
+
+.hero-visual__satellite--bottom {
+  --angle: 128deg;
+
+  background-color: var(--color-brand-600);
+  box-shadow: 0 0 0 4px rgb(2 132 199 / 0.16);
 }
 
 .hero-visual__core {
