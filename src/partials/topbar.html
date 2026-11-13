@@ -1,48 +1,43 @@
 <header class="topbar">
-  <button
-    class="topbar__menu"
-    type="button"
-    aria-label="Abrir menú"
-    aria-controls="sidebar"
-    aria-expanded="false"
-  >
-    <svg class="icon icon--lg" aria-hidden="true"><use href="#menu" /></svg>
+  <button class="topbar__menu" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+    <svg class="icon" aria-hidden="true"><use href="#menu" /></svg>
   </button>
+  <include src="logo.html" href="/home.html" label="home" modifier="topbar__logo"></include>
 
   <nav class="breadcrumb" aria-label="Ruta">
     <ol class="breadcrumb__list">
-      <li class="breadcrumb__item">
-        <a class="breadcrumb__link" href="/home.html">AguaAlerta</a>
+      <li class="breadcrumb__item"><a class="breadcrumb__link" href="/home.html">AguaAlerta</a></li>
+      <li class="breadcrumb__item" data-breadcrumb-seccion>
+        <a class="breadcrumb__link" href="{{section-href}}">{{section}}</a>
       </li>
-      <li
-        class="breadcrumb__item breadcrumb__item--current"
-        aria-current="page"
-      >
-        {{page}}
-      </li>
+      <li class="breadcrumb__item breadcrumb__item--current" aria-current="page" data-breadcrumb-actual>{{page}}</li>
     </ol>
   </nav>
 
   <div class="topbar__actions">
     <label class="search-box">
-      <svg class="icon search-box__icon" aria-hidden="true">
-        <use href="#search" />
-      </svg>
+      <svg class="icon search-box__icon" aria-hidden="true"><use href="#search" /></svg>
       <span class="visually-hidden">Buscar en el sistema</span>
-      <input
-        class="search-box__input"
-        type="search"
-        placeholder="Buscar en el sistema..."
-      />
+      <input class="search-box__input" type="search" placeholder="Buscar en el sistema..." />
       <kbd class="search-box__kbd">Ctrl K</kbd>
     </label>
     <button
       class="icon-button icon-button--notify icon-button--read"
       type="button"
       aria-label="Notificaciones"
+      aria-expanded="false"
+      aria-controls="alertas"
     >
-      <svg class="icon icon--lg" aria-hidden="true"><use href="#bell" /></svg>
+      <svg class="icon" aria-hidden="true"><use href="#bell" /></svg>
     </button>
     <span class="avatar avatar--sm" data-usuario-iniciales></span>
+  </div>
+
+  <div class="alerts" id="alertas" role="dialog" aria-label="Alertas críticas" hidden>
+    <div class="alerts__head">
+      <b class="alerts__title">Alertas críticas</b>
+      <span class="pill" data-alertas-contador></span>
+    </div>
+    <ul class="alerts__list" data-alertas></ul>
   </div>
 </header>
