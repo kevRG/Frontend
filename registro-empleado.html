@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Alta de empleado · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/registro.css" />
+  </head>
+  <body>
+    <include src="icons.html"></include>
+
+    <main class="enroll">
+      <a class="enroll__back" href="/login.html">← Volver al inicio de sesión</a>
+
+      <section class="enroll__card" aria-labelledby="enroll-title">
+        <span class="enroll__lock" aria-hidden="true">AA</span>
+        <span class="enroll__check" aria-hidden="true" hidden>✓</span>
+        <p class="enroll__kicker">Administración de acceso</p>
+        <h1 class="enroll__title" id="enroll-title">Acceso de alta restringido</h1>
+
+        <!-- Paso 1: master key -->
+        <form class="enroll__form" data-paso="clave" novalidate>
+          <p class="enroll__text">
+            Solo una persona autorizada puede dar de alta cuentas de empleados. La clave maestra debe validarse en el
+            servidor.
+          </p>
+          <div class="field enroll__key">
+            <label class="field__label" for="master-key">Master key *</label>
+            <input
+              class="field__input"
+              id="master-key"
+              name="master_key"
+              type="password"
+              placeholder="Ingresa la clave maestra"
+              autocomplete="off"
+              required
+            />
+            <p class="field__error" id="master-key-error"></p>
+          </div>
+          <button class="enroll__submit" type="submit">Validar acceso</button>
+          <small class="enroll__security">La clave no debe almacenarse ni compararse en el navegador.</small>
+        </form>
+
+        <!-- Paso 2: datos del empleado -->
+        <form class="enroll__form" data-paso="registro" novalidate hidden>
+          <p class="enroll__text">Captura la cuenta base, el rol y el perfil laboral del nuevo empleado.</p>
+          <div class="enroll__alert" role="alert" hidden></div>
+          <div class="enroll__fields">
+            <div class="field">
+              <label class="field__label" for="nombre_usuario">Nombre de usuario *</label>
+              <input class="field__input" id="nombre_usuario" name="nombre_usuario" autocomplete="off" required />
+              <p class="field__error" id="nombre_usuario-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="correo">Correo institucional *</label>
+              <input class="field__input" id="correo" name="correo" type="email" autocomplete="off" required />
+              <p class="field__error" id="correo-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="contrasena">Contraseña inicial *</label>
+              <input
+                class="field__input"
+                id="contrasena"
+                name="contrasena"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+              <p class="field__error" id="contrasena-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="telefono">Teléfono</label>
+              <input class="field__input" id="telefono" name="telefono" type="tel" autocomplete="off" />
+              <p class="field__error" id="telefono-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="nombre_completo">Nombre completo *</label>
+              <input class="field__input" id="nombre_completo" name="nombre_completo" autocomplete="off" required />
+              <p class="field__error" id="nombre_completo-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="id_rol">Rol *</label>
+              <select class="field__input" id="id_rol" name="id_rol" required data-roles>
+                <option value="">Seleccionar rol</option>
+              </select>
+              <p class="field__error" id="id_rol-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="especialidad">Especialidad</label>
+              <select class="field__input" id="especialidad" name="especialidad" data-especialidades></select>
+              <p class="field__error" id="especialidad-error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="disponibilidad">Disponibilidad *</label>
+              <select class="field__input" id="disponibilidad" name="disponibilidad" required data-disponibilidades></select>
+              <p class="field__error" id="disponibilidad-error"></p>
+            </div>
+          </div>
+          <button class="enroll__submit" type="submit">Crear cuenta de empleado</button>
+        </form>
+
+        <!-- Paso 3: confirmación -->
+        <div class="enroll__done" data-paso="exito" hidden>
+          <p class="enroll__text">La cuenta queda lista para recibir su rol y acceder al sistema.</p>
+          <a class="enroll__submit" href="/login.html">Volver al inicio de sesión</a>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/registro.js"></script>
+  </body>
+</html>
