@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Dashboard general · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/home.css" />
+  </head>
+  <body class="app">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" page="Dashboard general"></include>
+
+      <main class="content">
+        <section class="content__intro">
+          <p class="eyebrow">Centro de operaciones</p>
+          <h1 class="content__title">Buenos días, Lucía</h1>
+          <p class="content__subtitle">
+            Aquí tienes el pulso de la red hídrica municipal.
+          </p>
+        </section>
+
+        <ul class="kpis">
+          <li class="kpi">
+            <div class="kpi__top">
+              <span class="kpi__icon kpi__icon--danger">
+                <svg class="icon icon--lg" aria-hidden="true">
+                  <use href="#alert-triangle" />
+                </svg>
+              </span>
+              <span class="pill pill--danger">Requiere acción</span>
+            </div>
+            <span class="kpi__value">2</span>
+            <span class="kpi__label">Depósitos en nivel crítico</span>
+          </li>
+          <li class="kpi">
+            <div class="kpi__top">
+              <span class="kpi__icon kpi__icon--warning">
+                <svg class="icon icon--lg" aria-hidden="true">
+                  <use href="#file-text" />
+                </svg>
+              </span>
+              <span class="pill pill--warning">+3 hoy</span>
+            </div>
+            <span class="kpi__value">12</span>
+            <span class="kpi__label">Reportes activos</span>
+          </li>
+          <li class="kpi">
+            <div class="kpi__top">
+              <span class="kpi__icon kpi__icon--teal">
+                <svg class="icon icon--lg" aria-hidden="true">
+                  <use href="#user-check" />
+                </svg>
+              </span>
+              <span class="pill pill--neutral">6 en sitio</span>
+            </div>
+            <span class="kpi__value">8</span>
+            <span class="kpi__label">Cuadrillas despachadas</span>
+          </li>
+          <li class="kpi">
+            <div class="kpi__top">
+              <span class="kpi__icon kpi__icon--brand">
+                <svg class="icon icon--lg" aria-hidden="true">
+                  <use href="#clock" />
+                </svg>
+              </span>
+              <span class="pill pill--neutral">-12% vs. mes</span>
+            </div>
+            <span class="kpi__value">4h 18m</span>
+            <span class="kpi__label">Tiempo promedio de cierre</span>
+          </li>
+        </ul>
+
+        <div class="content__grid">
+          <section class="card card--map" aria-labelledby="map-title">
+            <header class="card__header">
+              <div>
+                <p class="eyebrow">Cobertura territorial</p>
+                <h2 class="card__title" id="map-title">
+                  Incidencias y red activa
+                </h2>
+              </div>
+              <a class="card__link" href="#">
+                Vista de red
+                <svg class="icon icon--sm" aria-hidden="true">
+                  <use href="#chevron-right" />
+                </svg>
+              </a>
+            </header>
+
+            <div class="network-map">
+              <svg
+                class="network-map__svg"
+                viewBox="0 0 1000 440"
+                preserveAspectRatio="xMidYMid slice"
+                role="img"
+                aria-label="Mapa con 2 incidencias críticas y 2 depósitos sobre la red troncal"
+              >
+                <defs>
+                  <filter
+                    id="marker-shadow"
+                    x="-50%"
+                    y="-50%"
+                    width="200%"
+                    height="200%"
+                  >
+                    <feDropShadow
+                      dx="0"
+                      dy="4"
+                      stdDeviation="4"
+                      flood-color="#0f172a"
+                      flood-opacity="0.25"
+                    />
+                  </filter>
+                </defs>
+                <polygon
+                  class="network-map__zone"
+                  points="27,34 255,12 357,104 600,72 650,130 700,300 752,393 547,410 372,355 52,306 107,185"
+                />
+                <polygon
+                  class="network-map__zone"
+                  points="640,82 740,40 960,100 880,222 800,240 760,394 700,300 650,130"
+                />
+                <path
+                  class="network-map__road"
+                  d="M 210 52 C 290 150 350 190 400 280 S 455 370 476 386"
+                />
+                <path
+                  class="network-map__road"
+                  d="M 100 318 C 250 250 330 196 420 194 C 560 192 640 262 838 222"
+                />
+                <path
+                  class="network-map__road"
+                  d="M 640 82 C 628 150 676 206 760 240"
+                />
+                <path
+                  class="network-map__trunk"
+                  d="M 112 268 C 220 236 300 160 390 156 C 520 150 600 262 720 262 C 780 262 820 244 838 236"
+                />
+
+                <g
+                  class="network-map__marker network-map__marker--incident"
+                  transform="translate(378 155)"
+                >
+                  <rect
+                    x="-18"
+                    y="-18"
+                    width="36"
+                    height="36"
+                    rx="8"
+                    transform="rotate(45)"
+                  />
+                  <use
+                    href="#alert-triangle"
+                    x="-10"
+                    y="-11"
+                    width="20"
+                    height="20"
+                  />
+                </g>
+                <g
+                  class="network-map__marker network-map__marker--incident"
+                  transform="translate(717 210)"
+                >
+                  <rect
+                    x="-18"
+                    y="-18"
+                    width="36"
+                    height="36"
+                    rx="8"
+                    transform="rotate(45)"
+                  />
+                  <use
+                    href="#alert-triangle"
+                    x="-10"
+                    y="-11"
+                    width="20"
+                    height="20"
+                  />
+                </g>
+                <g
+                  class="network-map__marker network-map__marker--deposit"
+                  transform="translate(238 267)"
+                >
+                  <rect
+                    x="-18"
+                    y="-18"
+                    width="36"
+                    height="36"
+                    rx="8"
+                    transform="rotate(45)"
+                  />
+                  <use
+                    href="#database"
+                    x="-10"
+                    y="-10"
+                    width="20"
+                    height="20"
+                  />
+                </g>
+                <g
+                  class="network-map__marker network-map__marker--deposit"
+                  transform="translate(607 305)"
+                >
+                  <rect
+                    x="-18"
+                    y="-18"
+                    width="36"
+                    height="36"
+                    rx="8"
+                    transform="rotate(45)"
+                  />
+                  <use
+                    href="#database"
+                    x="-10"
+                    y="-10"
+                    width="20"
+                    height="20"
+                  />
+                </g>
+              </svg>
+
+              <ul class="network-map__legend">
+                <li
+                  class="network-map__legend-item network-map__legend-item--incident"
+                >
+                  Incidencia crítica
+                </li>
+                <li
+                  class="network-map__legend-item network-map__legend-item--deposit"
+                >
+                  Depósito
+                </li>
+                <li
+                  class="network-map__legend-item network-map__legend-item--trunk"
+                >
+                  Red troncal
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="card card--telemetry"
+            aria-labelledby="telemetry-title"
+          >
+            <header class="card__header card__header--bordered">
+              <div>
+                <p class="eyebrow">Telemetría IoT</p>
+                <h2 class="card__title" id="telemetry-title">
+                  Niveles en vivo
+                </h2>
+              </div>
+              <span class="card__live">
+                <span
+                  class="status-dot status-dot--pulse"
+                  aria-hidden="true"
+                ></span>
+                Live
+              </span>
+            </header>
+
+            <ul class="tank-list" data-tanks></ul>
+
+            <a class="card__footer-link" href="#">
+              Ver todos los depósitos
+              <svg class="icon icon--sm" aria-hidden="true">
+                <use href="#arrow-right" />
+              </svg>
+            </a>
+          </section>
+        </div>
+
+        <section class="card card--reports" aria-labelledby="reports-title">
+          <header class="card__header">
+            <div>
+              <p class="eyebrow">Atención prioritaria</p>
+              <h2 class="card__title" id="reports-title">
+                Reportes por asignar
+              </h2>
+            </div>
+            <a class="card__link" href="#">
+              Ver todos
+              <svg class="icon icon--sm" aria-hidden="true">
+                <use href="#arrow-right" />
+              </svg>
+            </a>
+          </header>
+
+          <div class="table-wrap">
+            <table class="report-table">
+              <thead class="report-table__head">
+                <tr>
+                  <th class="report-table__th" scope="col">Folio / Fecha</th>
+                  <th class="report-table__th" scope="col">Incidencia</th>
+                  <th class="report-table__th" scope="col">Ubicación</th>
+                  <th class="report-table__th" scope="col">Prioridad</th>
+                  <th class="report-table__th" scope="col">Estado</th>
+                  <th class="report-table__th" scope="col">
+                    <span class="visually-hidden">Acciones</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody data-reports></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/js/home.js"></script>
+  </body>
+</html>
