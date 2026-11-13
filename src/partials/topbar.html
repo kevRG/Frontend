@@ -1,0 +1,48 @@
+<header class="topbar">
+  <button
+    class="topbar__menu"
+    type="button"
+    aria-label="Abrir menú"
+    aria-controls="sidebar"
+    aria-expanded="false"
+  >
+    <svg class="icon icon--lg" aria-hidden="true"><use href="#menu" /></svg>
+  </button>
+
+  <nav class="breadcrumb" aria-label="Ruta">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item">
+        <a class="breadcrumb__link" href="/home.html">AguaAlerta</a>
+      </li>
+      <li
+        class="breadcrumb__item breadcrumb__item--current"
+        aria-current="page"
+      >
+        {{page}}
+      </li>
+    </ol>
+  </nav>
+
+  <div class="topbar__actions">
+    <label class="search-box">
+      <svg class="icon search-box__icon" aria-hidden="true">
+        <use href="#search" />
+      </svg>
+      <span class="visually-hidden">Buscar en el sistema</span>
+      <input
+        class="search-box__input"
+        type="search"
+        placeholder="Buscar en el sistema..."
+      />
+      <kbd class="search-box__kbd">Ctrl K</kbd>
+    </label>
+    <button
+      class="icon-button icon-button--notify icon-button--read"
+      type="button"
+      aria-label="Notificaciones"
+    >
+      <svg class="icon icon--lg" aria-hidden="true"><use href="#bell" /></svg>
+    </button>
+    <span class="avatar avatar--sm" data-usuario-iniciales></span>
+  </div>
+</header>
