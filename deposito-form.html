@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Formulario de depósito · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/deposito-form.css" />
+  </head>
+  <body class="app" data-modulo="depositos">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" section="Depósitos &amp; IoT" section-href="/depositos.html" page="Registrar depósito"></include>
+
+      <main class="content" data-contenido>
+        <a class="back-link" href="/depositos.html" data-volver>← Volver</a>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Infraestructura hídrica</p>
+            <h1 class="page-header__title" data-titulo>Registrar depósito</h1>
+            <p class="page-header__text">Los campos con * son obligatorios.</p>
+          </div>
+        </header>
+
+        <form class="form-card" novalidate data-formulario>
+          <div class="form-card__alert" role="alert" hidden data-alerta></div>
+          <section class="form-card__section" >
+            <span class="form-card__number">01</span>
+            <div>
+              <h2 class="form-card__title">Datos del depósito</h2>
+              <p class="form-card__text">Identificación, tipo y capacidad de la infraestructura.</p>
+              <div class="form-card__fields">
+              <div class="field field--wide">
+                <label class="field__label" for="nombre_deposito">Nombre del depósito *</label>
+                <input class="field__input" id="nombre_deposito" name="nombre_deposito" type="text" maxlength="100" required />
+                <p class="field__error" id="nombre_deposito-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="tipo_deposito">Tipo *</label>
+                <select class="field__input" id="tipo_deposito" name="tipo_deposito" required></select>
+                <p class="field__error" id="tipo_deposito-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="estado">Estado operativo *</label>
+                <select class="field__input" id="estado" name="estado" required></select>
+                <p class="field__error" id="estado-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="capacidad_litros">Capacidad total (litros) *</label>
+                <input class="field__input" id="capacidad_litros" name="capacidad_litros" type="number" min="1" step="1" required />
+                <p class="field__error" id="capacidad_litros-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="nivel_actual_litros">Nivel actual (litros) *</label>
+                <input class="field__input" id="nivel_actual_litros" name="nivel_actual_litros" type="number" min="0" step="1" required />
+                <p class="field__error" id="nivel_actual_litros-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="fecha_instalacion">Fecha de instalación</label>
+                <input class="field__input" id="fecha_instalacion" name="fecha_instalacion" type="date"  />
+                <p class="field__error" id="fecha_instalacion-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">02</span>
+            <div>
+              <h2 class="form-card__title">Ubicación</h2>
+              <p class="form-card__text">Colonia que abastece y referencia física del depósito.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="id_colonia">Colonia abastecida *</label>
+                <select class="field__input" id="id_colonia" name="id_colonia" required></select>
+                <p class="field__hint" data-hint-id_colonia> </p>
+                <p class="field__error" id="id_colonia-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="ubicacion">Ubicación</label>
+                <input class="field__input" id="ubicacion" name="ubicacion" type="text" maxlength="255" placeholder="Ej. Av. Reforma y Calle 5" />
+                <p class="field__error" id="ubicacion-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">03</span>
+            <div>
+              <h2 class="form-card__title">Sensor IoT vinculado</h2>
+              <p class="form-card__text">Sensor de nivel que envía la telemetría del depósito.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="marca_sensor">Marca del sensor *</label>
+                <input class="field__input" id="marca_sensor" name="marca_sensor" type="text" maxlength="50" required />
+                <p class="field__error" id="marca_sensor-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="modelo_sensor">Modelo del sensor *</label>
+                <input class="field__input" id="modelo_sensor" name="modelo_sensor" type="text" maxlength="50" required />
+                <p class="field__error" id="modelo_sensor-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <div class="form-card__actions">
+            <a class="button button--secondary" href="/depositos.html" data-volver>Descartar</a>
+            <button class="button" type="submit" data-guardar>Registrar infraestructura</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/deposito-form.js"></script>
+  </body>
+</html>
