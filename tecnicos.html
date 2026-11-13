@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Técnicos y cuadrillas · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/tecnicos.css" />
+  </head>
+  <body class="app" data-modulo="tecnicos">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" page="Técnicos"></include>
+
+      <main class="content" data-contenido>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Operación en campo</p>
+            <h1 class="page-header__title">Técnicos y cuadrillas</h1>
+            <p class="page-header__text" data-resumen-texto></p>
+          </div>
+          <div class="page-header__actions">
+            <a class="button" href="/tecnico-form.html">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#plus" /></svg>
+              <span>Registrar personal</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="filters" role="search">
+          <label class="filters__search">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#search" /></svg>
+            <span class="visually-hidden">Buscar técnico</span>
+            <input class="filters__input" type="search" placeholder="Buscar nombre o especialidad..." data-filtro-texto />
+          </label>
+          <label>
+            <span class="visually-hidden">Filtrar por disponibilidad</span>
+            <select class="filters__select" data-filtro-disponibilidad>
+              <option value="">Toda disponibilidad</option>
+            </select>
+          </label>
+          <button class="filters__clear" type="button" data-limpiar>Limpiar</button>
+          <span class="filters__count" role="status" aria-live="polite" data-conteo></span>
+        </div>
+
+        <div class="people-grid" data-lista></div>
+
+        <section class="empty-state" data-vacio hidden>
+          <span class="empty-state__icon"><svg class="icon" aria-hidden="true"><use href="#shield" /></svg></span>
+          <h2 class="empty-state__title">No hay técnicos que coincidan</h2>
+          <p class="empty-state__text">Prueba con otra búsqueda o restablece los filtros.</p>
+          <button class="button button--secondary" type="button" data-limpiar>Restablecer filtros</button>
+        </section>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/tecnicos.js"></script>
+  </body>
+</html>
