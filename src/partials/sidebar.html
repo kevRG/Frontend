@@ -1,0 +1,67 @@
+<aside class="sidebar" id="sidebar" aria-label="Navegación del sistema">
+  <div class="sidebar__brand">
+    <include src="logo.html" href="/home.html" label="home" modifier="logo--inverse"></include>
+    <button class="sidebar__close" type="button" aria-label="Cerrar menú">
+      <svg class="icon" aria-hidden="true"><use href="#x" /></svg>
+    </button>
+  </div>
+
+  <nav class="sidebar__nav">
+    <p class="sidebar__section">Operación</p>
+    <ul class="sidebar__list">
+      <li>
+        <a class="sidebar__link" href="/home.html" data-nav="home">
+          <svg class="icon" aria-hidden="true"><use href="#home" /></svg>
+          Dashboard general
+        </a>
+      </li>
+      <li>
+        <a class="sidebar__link" href="#" data-nav="reportes">
+          <svg class="icon" aria-hidden="true"><use href="#file-text" /></svg>
+          Reportes
+          <span class="sidebar__badge" data-badge-reportes hidden></span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar__link" href="/depositos.html" data-nav="depositos">
+          <svg class="icon" aria-hidden="true"><use href="#database" /></svg>
+          Depósitos &amp; IoT
+          <span class="sidebar__badge sidebar__badge--alert" data-badge-depositos hidden></span>
+        </a>
+      </li>
+      <li>
+        <a class="sidebar__link" href="/tecnicos.html" data-nav="tecnicos">
+          <svg class="icon" aria-hidden="true"><use href="#user-check" /></svg>
+          Técnicos
+        </a>
+      </li>
+      <li>
+        <a class="sidebar__link" href="/usuarios.html" data-nav="usuarios">
+          <svg class="icon" aria-hidden="true"><use href="#users" /></svg>
+          Usuarios
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar__footer">
+    <div class="sidebar__shift">
+      <span class="sidebar__shift-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Turno en línea
+      </span>
+      <span class="sidebar__shift-time">08:00–16:00</span>
+    </div>
+
+    <div class="user-card">
+      <span class="avatar" data-usuario-iniciales></span>
+      <div class="user-card__info">
+        <span class="user-card__name" data-usuario-nombre></span>
+        <span class="user-card__role" data-usuario-rol></span>
+      </div>
+      <a class="user-card__logout" href="/login.html" data-cerrar-sesion aria-label="Cerrar sesión">
+        <svg class="icon" aria-hidden="true"><use href="#log-out" /></svg>
+      </a>
+    </div>
+  </div>
+</aside>

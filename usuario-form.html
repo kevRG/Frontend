@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Formulario de usuario · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/usuario-form.css" />
+  </head>
+  <body class="app" data-modulo="usuarios">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" section="Usuarios" section-href="/usuarios.html" page="Nuevo usuario"></include>
+
+      <main class="content" data-contenido>
+        <a class="back-link" href="/usuarios.html" data-volver>← Volver</a>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Administración</p>
+            <h1 class="page-header__title" data-titulo>Nuevo usuario</h1>
+            <p class="page-header__text">Los campos con * son obligatorios.</p>
+          </div>
+        </header>
+
+        <form class="form-card" novalidate data-formulario>
+          <div class="form-card__alert" role="alert" hidden data-alerta></div>
+          <section class="form-card__section" >
+            <span class="form-card__number">01</span>
+            <div>
+              <h2 class="form-card__title">Datos de la cuenta</h2>
+              <p class="form-card__text">Identificación y contacto del usuario.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="nombre_usuario">Nombre de usuario *</label>
+                <input class="field__input" id="nombre_usuario" name="nombre_usuario" type="text" maxlength="50" autocomplete="off" required />
+                <p class="field__error" id="nombre_usuario-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="correo">Correo electrónico *</label>
+                <input class="field__input" id="correo" name="correo" type="email" maxlength="100" autocomplete="off" required />
+                <p class="field__error" id="correo-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="contrasena">Contraseña inicial *</label>
+                <input class="field__input" id="contrasena" name="contrasena" type="password" autocomplete="new-password" />
+                <p class="field__hint" data-hint-contrasena>Mínimo 8 caracteres.</p>
+                <p class="field__error" id="contrasena-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="telefono">Teléfono</label>
+                <input class="field__input" id="telefono" name="telefono" type="tel" maxlength="20" />
+                <p class="field__error" id="telefono-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">02</span>
+            <div>
+              <h2 class="form-card__title">Rol y permisos</h2>
+              <p class="form-card__text">El rol define a qué partes del sistema tiene acceso.</p>
+              <div class="form-card__fields">
+              <fieldset class="field field--wide">
+                <legend class="field__label">Rol en el sistema *</legend>
+                <div class="choice-cards" data-roles></div>
+                <p class="field__error" id="id_rol-error"></p>
+              </fieldset>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">03</span>
+            <div>
+              <h2 class="form-card__title">Estado de la cuenta</h2>
+              <p class="form-card__text">Controla si el usuario puede entrar al sistema.</p>
+              <div class="form-card__fields">
+              <div class="field field--wide">
+                <label class="switch">
+                  <input class="switch__input" type="checkbox" name="estado" checked />
+                  <span class="switch__track" aria-hidden="true"></span>
+                  Cuenta activa
+                </label>
+                <p class="field__hint">Una cuenta inactiva no puede iniciar sesión.</p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" data-solo-alta>
+            <span class="form-card__number">04</span>
+            <div>
+              <h2 class="form-card__title">Autorización</h2>
+              <p class="form-card__text">Solo el personal con la master key puede dar de alta empleados.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="master_key">Master key *</label>
+                <input class="field__input" id="master_key" name="master_key" type="password" autocomplete="off" required />
+                <p class="field__error" id="master_key-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <div class="form-card__actions">
+            <a class="button button--secondary" href="/usuarios.html" data-volver>Descartar</a>
+            <button class="button" type="submit" data-guardar>Crear usuario</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/usuario-form.js"></script>
+  </body>
+</html>

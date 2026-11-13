@@ -1,0 +1,182 @@
+@import './global.css';
+
+/* ==========================================================================
+   Alta de empleado con master key
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Bloque: enroll
+   -------------------------------------------------------------------------- */
+.enroll {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 70px 20px;
+  background:
+    radial-gradient(circle at 15% 15%, #06b6d41f, transparent 30%),
+    linear-gradient(145deg, var(--color-primary-900), var(--color-primary-950));
+}
+
+.enroll__back {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary-200);
+}
+
+.enroll__back:hover {
+  color: var(--color-white);
+}
+
+.enroll__card {
+  width: min(100%, 720px);
+  padding: 34px;
+  background: var(--color-white);
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+}
+
+.enroll__card--success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.enroll__lock {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  font: 800 13px var(--font-display);
+  color: var(--color-white);
+  background: var(--color-primary-900);
+  border-radius: 13px;
+}
+
+.enroll__check {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-success-text);
+  background: var(--color-success-bg);
+  border-radius: 50%;
+}
+
+.enroll__lock[hidden],
+.enroll__check[hidden],
+.enroll__form[hidden],
+.enroll__done[hidden],
+.enroll__alert[hidden] {
+  display: none;
+}
+
+.enroll__kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-primary-600);
+}
+
+.enroll__title {
+  margin: 5px 0 8px;
+  font-size: 28px;
+}
+
+.enroll__text {
+  max-width: 560px;
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-text-2);
+}
+
+.enroll__key {
+  margin-bottom: 15px;
+}
+
+.enroll__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.enroll__alert {
+  margin: 0 0 16px;
+  padding: 11px 13px;
+  font-size: 11px;
+  color: var(--color-critical-text);
+  background: var(--color-critical-bg);
+  border: 1px solid var(--color-critical-border);
+  border-radius: var(--radius-sm);
+}
+
+.enroll__submit {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 17px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-primary-600);
+  border: 0;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.enroll__submit:hover {
+  background: var(--color-primary-700);
+}
+
+.enroll__submit:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+.enroll__security {
+  display: block;
+  margin-top: 12px;
+  font-size: 9px;
+  text-align: center;
+  color: var(--color-placeholder);
+}
+
+.enroll__done {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .enroll {
+    align-items: start;
+    padding: 80px 14px 30px;
+  }
+
+  .enroll__card {
+    padding: 24px 18px;
+  }
+
+  .enroll__back {
+    top: 25px;
+    left: 16px;
+  }
+
+  .enroll__fields {
+    grid-template-columns: 1fr;
+  }
+}

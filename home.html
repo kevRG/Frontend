@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Dashboard general · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/home.css" />
+  </head>
+  <body class="app" data-modulo="home">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" page="Dashboard general"></include>
+
+      <main class="content">
+        <section class="content__intro">
+          <p class="eyebrow">Centro de operaciones</p>
+          <h1 class="content__title" data-saludo></h1>
+          <p class="content__subtitle">Aquí tienes el pulso de la red hídrica municipal.</p>
+        </section>
+
+        <!-- KPIs -->
+        <ul class="kpis" data-kpis></ul>
+
+        <div class="content__grid">
+          <!-- Mapa -->
+          <section class="card card--map" aria-labelledby="map-title">
+            <header class="card__header">
+              <div>
+                <p class="eyebrow">Cobertura territorial</p>
+                <h2 class="card__title" id="map-title">Incidencias y red activa</h2>
+              </div>
+              <a class="card__link" href="#">
+                Vista de red
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-right" /></svg>
+              </a>
+            </header>
+
+            <div class="network-map" role="img" aria-label="Mapa de incidencias y depósitos sobre la red troncal" data-mapa>
+              <svg class="network-map__svg" viewBox="0 0 700 330" preserveAspectRatio="none" aria-hidden="true">
+                <path
+                  class="network-map__zone"
+                  d="M20 30 180 10l70 70 110-40 110 25 50-35 155 45-30 95-90 35-25 95-145 10-80-55-150 50-120-75 40-90Z"
+                />
+                <path
+                  class="network-map__road"
+                  d="M70 240C170 200 220 140 310 150s150 90 280 20M150 40c30 60 80 80 115 130s25 90 70 125M450 60c-10 50 25 90 85 125"
+                />
+                <path class="network-map__trunk" d="M80 205c100-20 160-110 255-75s125 100 250 50" />
+              </svg>
+              <div class="network-map__pins" aria-hidden="true" data-marcadores></div>
+
+              <ul class="network-map__legend">
+                <li class="network-map__legend-item network-map__legend-item--incident">Incidencia crítica</li>
+                <li class="network-map__legend-item network-map__legend-item--deposit">Depósito</li>
+                <li class="network-map__legend-item network-map__legend-item--trunk">Red troncal</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Telemetría -->
+          <section class="card card--telemetry" aria-labelledby="telemetry-title">
+            <header class="card__header">
+              <div>
+                <p class="eyebrow">Telemetría IoT</p>
+                <h2 class="card__title" id="telemetry-title">Niveles en vivo</h2>
+              </div>
+              <span class="card__live">
+                <span class="status-dot" aria-hidden="true"></span>
+                Live
+              </span>
+            </header>
+
+            <ul class="tank-list" data-tanks></ul>
+
+            <a class="card__footer-link" href="/depositos.html">
+              Ver todos los depósitos
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#arrow-right" /></svg>
+            </a>
+          </section>
+        </div>
+
+        <!-- Reportes -->
+        <section class="card card--reports" aria-labelledby="reports-title">
+          <header class="card__header">
+            <div>
+              <p class="eyebrow">Atención prioritaria</p>
+              <h2 class="card__title" id="reports-title">Reportes por asignar</h2>
+            </div>
+            <a class="card__link" href="#">
+              Ver todos
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#arrow-right" /></svg>
+            </a>
+          </header>
+
+          <div class="table-wrap">
+            <table class="report-table">
+              <thead class="report-table__head">
+                <tr>
+                  <th class="report-table__th" scope="col">Folio / Fecha</th>
+                  <th class="report-table__th" scope="col">Incidencia</th>
+                  <th class="report-table__th" scope="col">Ubicación</th>
+                  <th class="report-table__th" scope="col">Prioridad</th>
+                  <th class="report-table__th" scope="col">Estado</th>
+                  <th class="report-table__th" scope="col"><span class="visually-hidden">Acciones</span></th>
+                </tr>
+              </thead>
+              <tbody data-reports></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Directorio de usuarios · AguaAlerta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./src/css/normalize.css">
+  <link rel="stylesheet" href="./src/css/modulo-usuarios.css">
+</head>
+<body>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand__logo">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.2 6 10.5a6 6 0 0 1-12 0C6 9.2 12 3 12 3z"/></svg>
+      </div>
+      <div class="brand__text">
+        <strong class="brand__name">AguaAlerta</strong>
+        <span class="brand__tagline">RED HÍDRICA INTELIGENTE</span>
+      </div>
+    </div>
+
+    <div class="sidebar__section-title">OPERACIÓN</div>
+    <nav class="nav">
+      <a href="#" class="nav__item">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h5v-6h4v6h5V9.5"/></svg>
+        <span class="nav__text">Dashboard general</span>
+      </a>
+      <a href="#" class="nav__item">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+        <span class="nav__text">Reportes</span>
+        <em class="nav__badge nav__badge--gray">12</em>
+      </a>
+      <a href="./modulo-deposito.html" class="nav__item">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7" ry="2.8"/><path d="M5 5.5v13c0 1.5 3 2.8 7 2.8s7-1.3 7-2.8v-13M5 12c0 1.5 3 2.8 7 2.8s7-1.3 7-2.8"/></svg>
+        <span class="nav__text">Depósitos &amp; IoT</span>
+        <em class="nav__badge nav__badge--red">2</em>
+      </a>
+      <a href="#" class="nav__item">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6 1.4 0 2.6.3 3.6.9"/><path d="M14 19c1.2-1.6 2-1.6 3 0s2 1.6 3.5-.5"/></svg>
+        <span class="nav__text">Técnicos</span>
+      </a>
+      <a href="./modulo-usuarios.html" class="nav__item nav__item--active">
+        <svg class="nav__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.4c2.2.6 3.5 2.6 3.5 5.6"/></svg>
+        <span class="nav__text">Usuarios</span>
+      </a>
+    </nav>
+
+    <div class="sidebar__footer">
+      <div class="shift">
+        <span class="shift__dot"></span>
+        <span class="shift__text">Turno en línea</span>
+        <span class="shift__time">08:00–16:00</span>
+      </div>
+      <div class="user">
+        <div class="avatar avatar--small">LM</div>
+        <div class="user__info">
+          <strong class="user__name">Lucía Mendoza</strong>
+          <span class="user__role">Operadora central</span>
+        </div>
+        <button class="user__logout" aria-label="Cerrar sesión">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <span class="breadcrumb__item">AguaAlerta</span>
+        <svg class="breadcrumb__separator" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        <strong class="breadcrumb__current">Usuarios</strong>
+      </div>
+      <div class="topbar__actions">
+        <label class="search">
+          <svg class="search__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input class="search__input" type="text" id="global-search" placeholder="Buscar en el sistema...">
+          <kbd class="search__shortcut">Ctrl K</kbd>
+        </label>
+        <button class="bell" aria-label="Notificaciones">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span class="bell__dot"></span>
+        </button>
+        <div class="avatar">LM</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-head">
+        <div class="page-head__text">
+          <h1 class="page-head__title">Directorio de usuarios</h1>
+          <p class="page-head__subtitle">Gestión de accesos, roles y estado de cuentas.</p>
+        </div>
+        <button class="button button--primary page-head__action">
+          <svg class="button__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          Nuevo usuario
+        </button>
+      </div>
+
+      <!-- ============ BARRA DE FILTROS ============ -->
+      <section class="filters">
+        <label class="filters__search">
+          <svg class="filters__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input class="filters__input" type="text" id="user-search" placeholder="Buscar usuario o correo">
+        </label>
+
+        <div class="filters__select-wrap">
+          <select class="filters__select" id="role-filter" aria-label="Filtrar por rol">
+            <option value="all">Todos los roles</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Técnico">Técnico</option>
+            <option value="Ciudadano">Ciudadano</option>
+          </select>
+          <svg class="filters__chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </section>
+
+      <!-- ============ GRID DE USUARIOS ============ -->
+      <section class="user-grid" id="user-grid">
+        <!-- Tarjeta 1: Mario Cortés -->
+        <article class="user-card" data-role="Administrador">
+          <div class="user-card__top">
+            <div class="user-card__avatar user-card__avatar--blue">MC</div>
+            <span class="pill pill--green"><i class="pill__dot"></i>Administrador</span>
+          </div>
+          <div class="user-card__identity">
+            <h2 class="user-card__name">Mario Cortés</h2>
+            <p class="user-card__email">mario.cortés@municipio.gob.mx</p>
+          </div>
+          <div class="user-card__meta">
+            <span class="user-card__meta-label">Último acceso</span>
+            <strong class="user-card__meta-value">Hoy</strong>
+          </div>
+          <button class="user-card__btn" type="button">Ver perfil y asignaciones</button>
+        </article>
+
+        <!-- Tarjeta 2: Ana Valdés -->
+        <article class="user-card" data-role="Técnico">
+          <div class="user-card__top">
+            <div class="user-card__avatar user-card__avatar--teal">AV</div>
+            <span class="pill pill--yellow"><i class="pill__dot"></i>Técnico</span>
+          </div>
+          <div class="user-card__identity">
+            <h2 class="user-card__name">Ana Valdés</h2>
+            <p class="user-card__email">ana.valdés@municipio.gob.mx</p>
+          </div>
+          <div class="user-card__meta">
+            <span class="user-card__meta-label">Último acceso</span>
+            <strong class="user-card__meta-value">Hoy</strong>
+          </div>
+          <button class="user-card__btn" type="button">Ver perfil y asignaciones</button>
+        </article>
+
+        <!-- Tarjeta 3: Jorge Ríos -->
+        <article class="user-card" data-role="Ciudadano">
+          <div class="user-card__top">
+            <div class="user-card__avatar user-card__avatar--indigo">JR</div>
+            <span class="pill pill--green"><i class="pill__dot"></i>Ciudadano</span>
+          </div>
+          <div class="user-card__identity">
+            <h2 class="user-card__name">Jorge Ríos</h2>
+            <p class="user-card__email">jorge.ríos@municipio.gob.mx</p>
+          </div>
+          <div class="user-card__meta">
+            <span class="user-card__meta-label">Último acceso</span>
+            <strong class="user-card__meta-value">Hoy</strong>
+          </div>
+          <button class="user-card__btn" type="button">Ver perfil y asignaciones</button>
+        </article>
+
+        <!-- Tarjeta 4: Sofía Lara -->
+        <article class="user-card" data-role="Ciudadano">
+          <div class="user-card__top">
+            <div class="user-card__avatar user-card__avatar--amber">SL</div>
+            <span class="pill pill--neutral"><i class="pill__dot"></i>Ciudadano</span>
+          </div>
+          <div class="user-card__identity">
+            <h2 class="user-card__name">Sofía Lara</h2>
+            <p class="user-card__email">sofía.lara@municipio.gob.mx</p>
+          </div>
+          <div class="user-card__meta">
+            <span class="user-card__meta-label">Último acceso</span>
+            <strong class="user-card__meta-value">Hace 4 días</strong>
+          </div>
+          <button class="user-card__btn" type="button">Ver perfil y asignaciones</button>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <button class="help-fab" aria-label="Ayuda">?</button>
+
+  <script type="module" src="./src/js/modulo-usuarios.js"></script>
+</body>
+</html>

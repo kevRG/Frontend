@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Formulario de técnico · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/tecnico-form.css" />
+  </head>
+  <body class="app" data-modulo="tecnicos">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" section="Técnicos" section-href="/tecnicos.html" page="Registrar personal"></include>
+
+      <main class="content" data-contenido>
+        <a class="back-link" href="/tecnicos.html" data-volver>← Volver</a>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Operación en campo</p>
+            <h1 class="page-header__title" data-titulo>Registrar personal</h1>
+            <p class="page-header__text">Los campos con * son obligatorios.</p>
+          </div>
+        </header>
+
+        <form class="form-card" novalidate data-formulario>
+          <div class="form-card__alert" role="alert" hidden data-alerta></div>
+          <section class="form-card__section" >
+            <span class="form-card__number">01</span>
+            <div>
+              <h2 class="form-card__title">Cuenta vinculada</h2>
+              <p class="form-card__text">Cada técnico usa una cuenta de usuario con rol Técnico.</p>
+              <div class="form-card__fields">
+              <div class="field field--wide">
+                <label class="field__label" for="id_usuario">Usuario *</label>
+                <select class="field__input" id="id_usuario" name="id_usuario" required></select>
+                <p class="field__hint" data-hint-id_usuario> </p>
+                <p class="field__error" id="id_usuario-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">02</span>
+            <div>
+              <h2 class="form-card__title">Datos personales</h2>
+              <p class="form-card__text">Nombre y medios de contacto del técnico.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="nombre">Nombre *</label>
+                <input class="field__input" id="nombre" name="nombre" type="text" maxlength="100" required />
+                <p class="field__error" id="nombre-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="apellidos">Apellidos *</label>
+                <input class="field__input" id="apellidos" name="apellidos" type="text" maxlength="150" required />
+                <p class="field__error" id="apellidos-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="telefono">Teléfono de contacto</label>
+                <input class="field__input" id="telefono" name="telefono" type="tel" maxlength="20" />
+                <p class="field__error" id="telefono-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="correo">Correo institucional *</label>
+                <input class="field__input" id="correo" name="correo" type="email" maxlength="100" required />
+                <p class="field__error" id="correo-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" >
+            <span class="form-card__number">03</span>
+            <div>
+              <h2 class="form-card__title">Perfil laboral</h2>
+              <p class="form-card__text">Especialidad y disponibilidad operativa.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="especialidad">Especialidad principal *</label>
+                <select class="field__input" id="especialidad" name="especialidad" required></select>
+                <p class="field__error" id="especialidad-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="disponibilidad">Disponibilidad *</label>
+                <select class="field__input" id="disponibilidad" name="disponibilidad" required></select>
+                <p class="field__error" id="disponibilidad-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="fecha_contratacion">Fecha de contratación</label>
+                <input class="field__input" id="fecha_contratacion" name="fecha_contratacion" type="date"  />
+                <p class="field__error" id="fecha_contratacion-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <section class="form-card__section" data-solo-alta>
+            <span class="form-card__number">04</span>
+            <div>
+              <h2 class="form-card__title">Autorización</h2>
+              <p class="form-card__text">Solo el personal con la master key puede dar de alta empleados.</p>
+              <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="master_key">Master key *</label>
+                <input class="field__input" id="master_key" name="master_key" type="password" autocomplete="off" required />
+                <p class="field__error" id="master_key-error"></p>
+              </div>
+              </div>
+            </div>
+          </section>
+          <div class="form-card__actions">
+            <a class="button button--secondary" href="/tecnicos.html" data-volver>Descartar</a>
+            <button class="button" type="submit" data-guardar>Registrar técnico</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/tecnico-form.js"></script>
+  </body>
+</html>

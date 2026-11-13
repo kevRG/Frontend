@@ -1,13 +1,125 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <include src="head.html"></include>
+    <meta name="description" content="AguaAlerta: red hídrica inteligente para monitorear el suministro de agua en tu comunidad." />
+    <title>AguaAlerta · Red hídrica inteligente</title>
+    <link rel="stylesheet" href="/src/css/index.css" />
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+  <body class="landing">
+    <include src="icons.html"></include>
+
+    <include src="header.html"></include>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero__glow" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <span class="hero__badge">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            Sistema municipal · Telemetría en vivo
+          </span>
+
+          <h1 class="hero__title">
+            <span class="hero__title-line">Agua que se monitorea.</span>
+            <span class="hero__title-line hero__title-line--accent">Comunidad que responde.</span>
+          </h1>
+
+          <p class="hero__lead">
+            Inteligencia operativa para cuidar cada litro, anticipar fugas y coordinar una respuesta transparente en tu
+            comunidad.
+          </p>
+
+          <form class="search-card" id="consulta" novalidate>
+            <label class="search-card__label" for="colonia">Consulta el suministro en tu colonia</label>
+            <div class="search-card__row">
+              <svg class="icon search-card__icon" aria-hidden="true"><use href="#map-pin" /></svg>
+              <input
+                class="search-card__input"
+                id="colonia"
+                name="colonia"
+                type="text"
+                placeholder="Ej. San Baltazar, Centro..."
+                autocomplete="off"
+              />
+              <button class="button search-card__button" type="submit">Consultar</button>
+            </div>
+            <p class="search-card__feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual__orbit">
+            <div class="hero-visual__ring"></div>
+
+            <div class="hero-visual__core">
+              <svg class="hero-visual__drop" viewBox="0 0 24 24"><use href="#droplet" /></svg>
+              <span class="hero-visual__value" data-reserva></span>
+              <span class="hero-visual__caption">Reserva segura</span>
+            </div>
+
+            <div class="float-card hero-visual__card hero-visual__card--sensors">
+              <svg class="icon float-card__icon" aria-hidden="true"><use href="#radio" /></svg>
+              <div class="float-card__text">
+                <span class="float-card__label" data-sensores></span>
+                <span class="float-card__value">en línea</span>
+              </div>
+            </div>
+
+            <div class="float-card hero-visual__card hero-visual__card--flow">
+              <svg class="icon float-card__icon" aria-hidden="true"><use href="#trending-up" /></svg>
+              <div class="float-card__text">
+                <span class="float-card__label">Flujo hoy</span>
+                <span class="float-card__value" data-flujo></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estado comunitario -->
+      <section class="status" id="estado" aria-labelledby="status-title">
+        <div class="status__inner">
+          <div class="status__header">
+            <div>
+              <p class="eyebrow">Estado comunitario</p>
+              <h2 class="status__title" id="status-title">La red, en este momento</h2>
+            </div>
+            <p class="status__updated">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span data-actualizado></span>
+            </p>
+          </div>
+
+          <ul class="status__grid" data-metricas></ul>
+        </div>
+      </section>
+
+      <!-- CTA operación institucional -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+          <div class="cta__body">
+            <span class="cta__icon">
+              <svg class="icon" aria-hidden="true"><use href="#file-text" /></svg>
+            </span>
+            <div class="cta__content">
+              <p class="eyebrow eyebrow--light">Operación institucional</p>
+              <h2 class="cta__title" id="cta-title">Gestión exclusiva para personal autorizado</h2>
+              <p class="cta__text">La captura de reportes, infraestructura y telemetría se realiza dentro del centro operativo.</p>
+            </div>
+          </div>
+          <a class="button cta__button" href="/login.html">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#arrow-right" /></svg>
+            Ingresar al sistema
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <include src="footer.html"></include>
+
+    <script type="module" src="/src/js/index.js"></script>
   </body>
 </html>
