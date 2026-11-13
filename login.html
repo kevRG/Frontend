@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta name="robots" content="noindex" />
+    <title>Acceso a personal · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/login.css" />
+  </head>
+  <body class="auth">
+    <aside class="auth__media">
+      <figure class="auth__quote">
+        <blockquote class="auth__quote-text">
+          “Tecnología para que cada decisión hídrica llegue a tiempo.”
+        </blockquote>
+        <figcaption class="auth__quote-author">
+          Centro Municipal de Operaciones
+        </figcaption>
+      </figure>
+
+      <p class="auth__credit">Foto: Ivan Bandura / Unsplash</p>
+    </aside>
+
+    <main class="auth__panel">
+      <a class="auth__back" href="/">
+        <svg class="icon icon--sm" aria-hidden="true">
+          <use href="#arrow-left" />
+        </svg>
+        Volver al portal público
+      </a>
+
+      <div class="auth__wrapper">
+        <form class="login-form" novalidate>
+          <p class="eyebrow">Acceso restringido</p>
+          <h1 class="login-form__title">Bienvenido a<br />AguaAlerta</h1>
+          <p class="login-form__subtitle">
+            Ingresa tus credenciales institucionales para continuar.
+          </p>
+
+          <div class="login-form__field">
+            <label class="login-form__label" for="usuario"
+              >Usuario o correo institucional</label
+            >
+            <input
+              class="login-form__input"
+              id="usuario"
+              name="usuario"
+              type="text"
+              placeholder="nombre@municipio.gob.mx"
+              autocomplete="username"
+              required
+            />
+            <p class="login-form__error" id="usuario-error"></p>
+          </div>
+
+          <div class="login-form__field">
+            <label class="login-form__label" for="password">Contraseña</label>
+            <div class="login-form__control">
+              <input
+                class="login-form__input login-form__input--password"
+                id="password"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                class="login-form__toggle"
+                type="button"
+                aria-label="Mostrar contraseña"
+                aria-pressed="false"
+              >
+                <svg class="icon" aria-hidden="true"><use href="#eye" /></svg>
+              </button>
+            </div>
+            <p class="login-form__error" id="password-error"></p>
+          </div>
+
+          <div class="login-form__options">
+            <label class="checkbox">
+              <input class="checkbox__input" type="checkbox" name="recordar" />
+              <span class="checkbox__box" aria-hidden="true"></span>
+              <span class="checkbox__label">Mantener sesión iniciada</span>
+            </label>
+            <a class="login-form__link" href="#">¿Problemas para ingresar?</a>
+          </div>
+
+          <button
+            class="button button--block button--lg login-form__submit"
+            type="submit"
+          >
+            Iniciar sesión
+          </button>
+
+          <p class="login-form__note">Acceso cifrado y monitoreado · v2.4.1</p>
+        </form>
+      </div>
+    </main>
+
+    <script type="module" src="/src/js/login.js"></script>
+  </body>
+</html>
