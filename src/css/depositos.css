@@ -1,0 +1,8 @@
+@import './global.css';
+@import './panel.css';
+
+/* ==========================================================================
+   Depósitos: lista
+   Los bloques compartidos (page-header, filters, tarjetas, formularios)
+   viven en panel.css; aquí van solo los ajustes propios de esta página.
+   ========================================================================== */
