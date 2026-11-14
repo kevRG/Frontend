@@ -5,7 +5,7 @@ const ESPECIALIDADES = ['Tuberías', 'Sensores IoT', 'Válvulas'];
 const DISPONIBILIDADES = ['Disponible', 'Fuera de turno'];
 const ROLES_EMPLEADO_EXCLUIDOS = ['Ciudadano'];
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
 const USUARIO = /^[\p{L}0-9._ -]{3,50}$/u;
 const TELEFONO = /^[0-9 +()-]{10,20}$/;
 
@@ -194,4 +194,7 @@ const cargarCatalogos = async () => {
   );
 };
 
-cargarCatalogos();
+cargarCatalogos().catch(() => {
+  alerta.textContent = 'No pudimos cargar los roles. Recarga la página.';
+  alerta.hidden = false;
+});

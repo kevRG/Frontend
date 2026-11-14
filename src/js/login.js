@@ -18,7 +18,7 @@ toggle.addEventListener('click', () => {
 });
 
 /* Validación */
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
 const USUARIO = /^[\p{L}0-9._ -]{3,50}$/u;
 const ROLES_SIN_ACCESO = ['Ciudadano'];
 

@@ -1,13 +1,21 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 const ROOT = import.meta.dirname;
 const PARTIALS_DIR = resolve(ROOT, "src/partials");
 
-const INCLUDE_RE = /<include\s+([^>]*?)\s*(?:\/>|>\s*<\/include>)/g;
-const ATTR_RE = /([\w-]+)\s*=\s*"([^"]*)"/g;
-const VAR_RE = /\{\{\s*([\w-]+)\s*\}\}/g;
+/* Todas las páginas .html de la raíz entran al build (así ninguna da 404 en producción). */
+const PAGINAS = Object.fromEntries(
+  readdirSync(ROOT)
+    .filter((archivo) => archivo.endsWith(".html"))
+    .map((archivo) => [archivo.replace(/\.html$/, ""), resolve(ROOT, archivo)]),
+);
+
+/* Expresiones sin cuantificadores ambiguos para evitar backtracking. */
+const INCLUDE_RE = /<include\s([^>]*)>(?:\s*<\/include>)?/g;
+const ATTR_RE = /([\w-]+)="([^"]*)"/g;
+const VAR_RE = /\{\{([\w-]+)\}\}/g;
 
 function renderPartials(html, depth = 0) {
   if (depth > 10)
@@ -47,13 +55,11 @@ function htmlPartials() {
 
 export default defineConfig({
   plugins: [htmlPartials()],
+  /* Sitio multipágina: una ruta inexistente da 404 en vez de mostrar la portada. */
+  appType: "mpa",
   build: {
     rollupOptions: {
-      input: {
-        main: resolve(ROOT, "index.html"),
-        login: resolve(ROOT, "login.html"),
-        home: resolve(ROOT, "home.html"),
-      },
+      input: PAGINAS,
     },
   },
 });
