@@ -222,13 +222,14 @@ const initNotificaciones = async (idUsuario) => {
     boton.setAttribute('aria-label', `Notificaciones (${sinLeer} sin leer)`);
   }
 
-  const setAbierto = async (abierto) => {
+  const setAbierto = (abierto) => {
     panel.hidden = !abierto;
     boton.setAttribute('aria-expanded', String(abierto));
     if (abierto && !boton.classList.contains('icon-button--read')) {
       boton.classList.add('icon-button--read');
       boton.setAttribute('aria-label', 'Notificaciones');
-      await marcarNotificacionesLeidas(idUsuario);
+      /* Marcar como leídas no debe bloquear el popover; si falla, se reintenta al volver a abrir. */
+      marcarNotificacionesLeidas(idUsuario).catch(() => boton.classList.remove('icon-button--read'));
     }
   };
 
@@ -274,7 +275,7 @@ export const iniciarPanel = async () => {
 /* --------------------------------------------------------------------------
    Utilidades de formularios (alta y edición)
    -------------------------------------------------------------------------- */
-export const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const EMAIL = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
 export const TELEFONO = /^[0-9 +()-]{10,20}$/;
 
 /** Muestra u oculta el mensaje de error de un campo (id del error: `${input.id}-error`). */
