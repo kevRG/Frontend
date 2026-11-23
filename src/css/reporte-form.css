@@ -1,0 +1,235 @@
+@import './global.css';
+@import './panel.css';
+
+/* ==========================================================================
+   Reportes: formulario "Ayúdanos a ubicar el problema"
+   Página sin menú lateral: barra con logo y "Cancelar", pasos y tarjeta del formulario.
+   ========================================================================== */
+.report-page {
+  min-height: 100vh;
+  background: var(--color-subtle);
+}
+
+/* Barra superior */
+.report-page__bar {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.report-page__bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1160px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.report-page__cancel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.report-page__cancel:hover {
+  color: var(--color-primary-700);
+}
+
+.report-page__main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.report-page__header {
+  margin-bottom: 26px;
+}
+
+.report-page__title {
+  margin: 4px 0 6px;
+  font: 800 32px/1.15 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.report-page__text {
+  font-size: 13px;
+  color: var(--color-text-2);
+}
+
+/* Pasos (se marcan conforme se completa cada sección) */
+.steps {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 26px;
+}
+
+.steps__item {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  font: 700 11px var(--font-mono);
+  color: var(--color-placeholder);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.steps__item--done {
+  color: var(--color-white);
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+}
+
+.steps__line {
+  width: 72px;
+  height: 2px;
+  background: var(--color-primary-200);
+}
+
+/* Tarjetas de gravedad: tres columnas, sin el círculo del radio */
+.report-form .choice-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.report-form .choice-card {
+  padding: 12px 14px;
+}
+
+.report-form .choice-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.report-form .choice-card:has(input:checked) .choice-card__title {
+  color: var(--color-primary-700);
+}
+
+.report-form .choice-card:has(input:focus-visible) {
+  outline: 3px solid rgb(14 165 233 / 0.25);
+  outline-offset: 2px;
+}
+
+.report-form .choice-cards--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Zona para soltar fotografías */
+.dropzone {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 28px 16px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--color-primary-50);
+  border: 1px dashed var(--color-primary-200);
+  border-radius: 12px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.dropzone:hover,
+.dropzone--over {
+  background: var(--color-primary-100);
+  border-color: var(--color-primary-500);
+}
+
+.dropzone:focus-within {
+  outline: 3px solid rgb(14 165 233 / 0.25);
+  outline-offset: 2px;
+}
+
+.dropzone[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.dropzone__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-teal-700);
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+}
+
+.dropzone__title {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dropzone__hint {
+  font-size: 10px;
+  color: var(--color-text-2);
+}
+
+.report-form .evidence-grid {
+  margin-top: 12px;
+}
+
+/* Pie: aviso de privacidad y enviar */
+.report-form .form-card__actions {
+  justify-content: space-between;
+  background: var(--color-white);
+}
+
+.report-form__privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--color-text-2);
+}
+
+.report-form__privacy .icon {
+  color: var(--color-teal-700);
+}
+
+@media (max-width: 760px) {
+  .report-page__main {
+    padding: 28px 16px 40px;
+  }
+
+  .report-page__title {
+    font-size: 24px;
+  }
+
+  .report-form .choice-cards,
+  .report-form .choice-cards--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .report-form .form-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* La gravedad es un fieldset: sin el borde ni el margen del navegador */
+.report-form fieldset.field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.report-form legend.field__label {
+  padding: 0;
+  margin-bottom: 7px;
+}
+
+/* En este formulario el número de sección va sin recuadro, como en el diseño */
+.report-form .form-card__number {
+  place-items: start;
+  width: auto;
+  height: auto;
+  padding-top: 2px;
+  background: none;
+}

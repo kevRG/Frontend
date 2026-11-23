@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Reportes de incidencias · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/reportes.css" />
+  </head>
+  <body class="app" data-modulo="reportes">
+    <include src="icons.html"></include>
+
+    <include src="sidebar.html"></include>
+    <div class="app__overlay" hidden></div>
+
+    <div class="app__main">
+      <include src="topbar.html" page="Reportes"></include>
+
+      <main class="content" data-contenido>
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Gestión ciudadana</p>
+            <h1 class="page-header__title">Reportes de incidencias</h1>
+            <p class="page-header__text" data-resumen-texto></p>
+          </div>
+          <div class="page-header__actions" data-solo-gestion hidden>
+            <a class="button" href="/reporte-form.html">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#plus" /></svg>
+              <span>Levantar reporte</span>
+            </a>
+          </div>
+        </header>
+
+        <div class="filters" role="search">
+          <label class="filters__search">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#search" /></svg>
+            <span class="visually-hidden">Buscar reporte</span>
+            <input class="filters__input" type="search" placeholder="Buscar folio, calle o colonia" data-filtro-texto />
+          </label>
+          <label>
+            <span class="visually-hidden">Filtrar por categoría</span>
+            <select class="filters__select" data-filtro-categoria><option value="">Categoría</option></select>
+          </label>
+          <label>
+            <span class="visually-hidden">Filtrar por prioridad</span>
+            <select class="filters__select" data-filtro-prioridad><option value="">Prioridad</option></select>
+          </label>
+          <label>
+            <span class="visually-hidden">Filtrar por estado</span>
+            <select class="filters__select" data-filtro-estado><option value="">Estado</option></select>
+          </label>
+          <button class="filters__clear" type="button" data-limpiar>Limpiar</button>
+          <span class="visually-hidden" role="status" aria-live="polite" data-conteo></span>
+        </div>
+
+        <section class="card card--reports" aria-label="Bandeja de reportes" data-bandeja>
+          <div class="table-wrap">
+            <table class="report-table report-table--full">
+              <thead class="report-table__head">
+                <tr>
+                  <th class="report-table__th" scope="col">Folio / Fecha</th>
+                  <th class="report-table__th" scope="col">Incidencia</th>
+                  <th class="report-table__th" scope="col">Ubicación</th>
+                  <th class="report-table__th" scope="col">Prioridad</th>
+                  <th class="report-table__th" scope="col">Responsable</th>
+                  <th class="report-table__th" scope="col">Estado</th>
+                  <th class="report-table__th" scope="col"><span class="visually-hidden">Abrir</span></th>
+                </tr>
+              </thead>
+              <tbody data-lista></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="empty-state" data-vacio hidden>
+          <span class="empty-state__icon"><svg class="icon" aria-hidden="true"><use href="#file-text" /></svg></span>
+          <h2 class="empty-state__title">No hay reportes que coincidan</h2>
+          <p class="empty-state__text">Prueba con otra búsqueda o restablece los filtros.</p>
+          <button class="button button--secondary" type="button" data-limpiar>Restablecer filtros</button>
+        </section>
+      </main>
+    </div>
+
+    <include src="bottom-nav.html"></include>
+
+    <script type="module" src="/src/js/reportes.js"></script>
+  </body>
+</html>

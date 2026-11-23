@@ -1,0 +1,8 @@
+@import './global.css';
+@import './panel.css';
+
+/* ==========================================================================
+   Reportes: lista
+   Los bloques compartidos (page-header, filters, report-table, tarjetas)
+   viven en panel.css; aquí van solo los ajustes propios de esta página.
+   ========================================================================== */

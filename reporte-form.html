@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <include src="head.html"></include>
+    <meta name="robots" content="noindex" />
+    <title>Levantar reporte · AguaAlerta</title>
+    <link rel="stylesheet" href="/src/css/reporte-form.css" />
+  </head>
+  <body class="report-page">
+    <include src="icons.html"></include>
+
+    <header class="report-page__bar">
+      <div class="report-page__bar-inner">
+        <include src="logo.html" href="/reportes.html" label="reportes" modifier=""></include>
+        <a class="report-page__cancel" href="/reportes.html" data-volver>Cancelar</a>
+      </div>
+    </header>
+
+    <main class="report-page__main" data-contenido>
+      <header class="report-page__header">
+        <p class="eyebrow" data-eyebrow>Reporte ciudadano</p>
+        <h1 class="report-page__title" data-titulo>Ayúdanos a ubicar el problema</h1>
+        <p class="report-page__text">La información precisa acelera la respuesta de nuestras cuadrillas.</p>
+      </header>
+
+      <div class="steps" aria-hidden="true">
+        <span class="steps__item" data-paso="1">1</span>
+        <span class="steps__line"></span>
+        <span class="steps__item" data-paso="2">2</span>
+        <span class="steps__line"></span>
+        <span class="steps__item" data-paso="3">3</span>
+      </div>
+      <p class="visually-hidden" role="status" aria-live="polite" data-pasos-texto></p>
+
+      <form class="form-card report-form" novalidate data-formulario>
+        <div class="form-card__alert" role="alert" hidden data-alerta></div>
+
+        <section class="form-card__section">
+          <span class="form-card__number">01</span>
+          <div>
+            <h2 class="form-card__title">Datos de la falla</h2>
+            <p class="form-card__text">Selecciona la categoría que mejor describa el problema.</p>
+            <div class="form-card__fields">
+              <div class="field field--wide">
+                <label class="field__label" for="id_categoria">Categoría del problema *</label>
+                <select class="field__input" id="id_categoria" name="id_categoria" required></select>
+                <p class="field__error" id="id_categoria-error"></p>
+              </div>
+              <fieldset class="field field--wide" aria-describedby="nivel_prioridad-error">
+                <legend class="field__label">Gravedad percibida *</legend>
+                <div class="choice-cards" data-gravedades></div>
+                <p class="field__error" id="nivel_prioridad-error"></p>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-card__section">
+          <span class="form-card__number">02</span>
+          <div>
+            <h2 class="form-card__title">Ubicación del problema</h2>
+            <p class="form-card__text">Indica dónde está ocurriendo la incidencia.</p>
+            <div class="form-card__fields">
+              <div class="field">
+                <label class="field__label" for="id_colonia">Colonia *</label>
+                <select class="field__input" id="id_colonia" name="id_colonia" required></select>
+                <p class="field__error" id="id_colonia-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="ubicacion">Calle y número *</label>
+                <input class="field__input" id="ubicacion" name="ubicacion" type="text" maxlength="200" placeholder="Ej. Av. Reforma 184" required />
+                <p class="field__error" id="ubicacion-error"></p>
+              </div>
+              <div class="field field--wide">
+                <label class="field__label" for="id_vivienda">Vivienda que reporta *</label>
+                <select class="field__input" id="id_vivienda" name="id_vivienda" required></select>
+                <p class="field__hint" data-hint-id_vivienda></p>
+                <p class="field__error" id="id_vivienda-error"></p>
+              </div>
+              <div class="field field--wide">
+                <label class="field__label" for="referencias">Referencias visuales</label>
+                <input class="field__input" id="referencias" name="referencias" type="text" maxlength="50" placeholder="Frente a parque, esquina con..." />
+                <p class="field__error" id="referencias-error"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-card__section">
+          <span class="form-card__number">03</span>
+          <div>
+            <h2 class="form-card__title">Evidencia y detalles</h2>
+            <p class="form-card__text">Describe lo que observas y adjunta hasta 3 fotografías.</p>
+            <div class="form-card__fields">
+              <div class="field field--wide">
+                <label class="field__label" for="descripcion">Descripción *</label>
+                <textarea class="field__input" id="descripcion" name="descripcion" maxlength="1000" placeholder="Describe el origen, intensidad y alcance visible..." required></textarea>
+                <p class="field__error" id="descripcion-error"></p>
+              </div>
+              <div class="field field--wide">
+                <label class="dropzone" data-dropzone>
+                  <input class="visually-hidden" id="fotos" type="file" accept="image/jpeg,image/png" multiple data-fotos />
+                  <span class="dropzone__icon"><svg class="icon icon--sm" aria-hidden="true"><use href="#plus" /></svg></span>
+                  <span class="dropzone__title">Arrastra fotografías aquí o haz clic para elegir</span>
+                  <span class="dropzone__hint">JPG o PNG · Máximo 5 MB por imagen</span>
+                </label>
+                <p class="field__error" id="fotos-error"></p>
+                <div class="evidence-grid" data-vista-fotos></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-card__actions">
+          <p class="report-form__privacy">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#check" /></svg>
+            Tus datos se protegen conforme al aviso de privacidad.
+          </p>
+          <button class="button" type="submit" data-guardar>Enviar reporte</button>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="/src/js/reporte-form.js"></script>
+  </body>
+</html>
