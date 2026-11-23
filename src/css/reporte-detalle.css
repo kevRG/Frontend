@@ -1,0 +1,69 @@
+@import './global.css';
+@import './panel.css';
+
+/* ==========================================================================
+   Reportes: detalle
+   Los bloques compartidos (page-header, filters, report-table, tarjetas)
+   viven en panel.css; aquí van solo los ajustes propios de esta página.
+   ========================================================================== */
+.report-detail__description {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.report-detail__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.report-detail__form--assign {
+  margin-top: 0;
+  padding: 16px 18px 18px;
+}
+
+.report-detail__form--plain {
+  margin-top: 0;
+  padding: 0 18px 18px;
+  border-top: 0;
+}
+
+.report-detail__body {
+  padding: 0 18px 18px;
+}
+
+.report-detail__form .field--wide {
+  grid-column: 1 / -1;
+}
+
+.report-detail__form-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.report-detail__note {
+  margin-right: auto;
+  font-size: 11px;
+}
+
+.report-detail__note--ok {
+  color: var(--color-success-text);
+}
+
+.report-detail__note--error {
+  color: var(--color-critical-text);
+}
+
+@media (max-width: 760px) {
+  .report-detail__form {
+    grid-template-columns: 1fr;
+  }
+}
